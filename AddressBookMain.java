@@ -1,3 +1,4 @@
+import java.util.*;
 public class AddressBookMain
 {
         private String firstName;
@@ -20,22 +21,34 @@ public class AddressBookMain
 		this.phoneNum = phoneNum;
 		this.emailId = emailId;
        }
-       public void Display()
+
+       public String toString()
        {
-                 System.out.println("First Name: " + firstName);
-                 System.out.println("Last Name: " + lastName);
-                 System.out.println("Address: " + address);
-                 System.out.println("City: " + city);
-                 System.out.println("State: " + state);
-                 System.out.println("ZIP: " + zip);
-                 System.out.println("Phone Number: " + phoneNum);
-                 System.out.println("Email ID: " + emailId);
+               return "Name : " + firstName + " " + lastName + " Address : " + address + " City : " + city + " State : " + state + " ZIP : " + zip + " phoneNum : " + phoneNum + " Email ID : " + emailId;
        }
 
        public static void main(String[] args)
        {
-               AddressBookMain ad = new AddressBookMain( "Divya", "Reddy", "ECIL", "Hyderabad", "Telangana", 522003, "9187654321", "divya@gmail.com");
-	       ad.Display();
+               Scanner sc = new Scanner(System.in);
+               System.out.println("First Name : ");
+               String firstName = sc.nextLine();
+               System.out.println("Last Name : ");
+               String lastName = sc.nextLine();
+               System.out.println("Address : ");
+               String address = sc.nextLine();
+               System.out.println("City : ");
+               String city = sc.nextLine();
+               System.out.println("State : ");
+               String state = sc.nextLine();
+               System.out.println("ZIP : ");
+               int zip = sc.nextInt();
+               System.out.println("Phone Number : ");
+               String phoneNum = sc.nextLine();
+               sc.nextLine();
+               System.out.println("Email ID : ");
+               String emailId = sc.nextLine();
+               AddressBookMain ad = new AddressBookMain(firstName, lastName, address, city, state, zip, phoneNum, emailId);
+               System.out.println(ad);
        }
 
 }
