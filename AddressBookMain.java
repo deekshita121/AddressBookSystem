@@ -34,6 +34,25 @@ public class AddressBookMain
                 }
       }
 
+      private void deletePersonDetails(String firstN, String lastN)
+      {
+               int flag = 0;
+               for(int i= 0; i < noOfPersons ; i++)
+               {
+                        if(detailsArray[i].firstName.equals(firstN) && detailsArray[i].lastName.equals(lastN))
+                        {
+                              flag = 1;
+                              detailsArray[i]=null;
+                              System.out.println("Details deleted");
+                              break;
+                        }
+               }
+               if(flag==0)
+               {
+                        System.out.println("No such name in records");
+               }
+     }
+
       public static void main(String[] args)
       {
 		Scanner sc = new Scanner(System.in);
@@ -61,11 +80,20 @@ public class AddressBookMain
 			sc.nextLine();
 			System.out.println("Email ID: ");
 			String emailId = sc.nextLine();
-			ad.addPersonDetails(firstName, lastName, address, city, state, zip, phoneNum, emailId);
+    			ad.addPersonDetails(firstName, lastName, address, city, state, zip, phoneNum, emailId);
 		}
-		System.out.println("Enter the name of the contact you want to edit and details to be modified");
+/*                System.out.println("--OPTIONS--");
+                System.out.println(" 1. Add ");
+                System.out.println("2. Delete");
+                System.out.println("Choose your option");
+                int option = sc.nextInt();
+                switch(option)
+                {
+                        case 1:
+*/		        System.out.println("Enter the name of the contact you want to edit and details to be modified");
 			System.out.println("First Name: ");
 			String firstName = sc.nextLine();
+                        sc.nextLine();
 			System.out.println("Last Name: ");
 			String lastName = sc.nextLine();
 			System.out.println("Address: ");
@@ -81,7 +109,21 @@ public class AddressBookMain
 			sc.nextLine();
 			System.out.println("Email ID: ");
 			String emailId = sc.nextLine();
-			ad.editPersonDetails(firstName, lastName, address, city, state, zip, phoneNum, emailId);
+                        ad.editPersonDetails(firstName,lastName,address,city,state,zip,phoneNum,emailId);
+ //                       break;
+  //                      case 2:
+                        System.out.println("Enter the name of the person whose details are to be deleted");
+                        System.out.println("Enter the first name :");
+                        String firstN = sc.nextLine();
+                        sc.nextLine();
+                        System.out.println("Enter the last name :");
+                        String lastN = sc.nextLine();
+                        ad.deletePersonDetails(firstN,lastN);
+                        /*break;
+                        default:
+                        System.out.println("Wrong option");
+                }*/
+
 	}
 }
 
