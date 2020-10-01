@@ -1,20 +1,19 @@
 import java.util.*;
 public class AddressBookMain
 {
-      private int noOfPersons = 0;
-      private PersonDetails[] detailsArray;
+      private ArrayList<PersonDetails> detailsArrayList;
       private AddressBookMain()
       {
-              detailsArray = new PersonDetails[5];
+              detailsArrayList = new ArrayList<>();
       }
       private void addPersonDetails(String firstName, String lastName, String address, String city, String state, int zip, String phoneNum, String emailId)
       {
-              detailsArray[noOfPersons] = new PersonDetails();
-              detailsArray[noOfPersons].setPersonDetails(firstName, lastName, address, city, state, zip, phoneNum, emailId);
-              noOfPersons++;
+              PersonDetails pd = new PersonDetails();
+              pd.setPersonDetails(firstName, lastName, address, city, state, zip, phoneNum, emailId);
+              detailsArrayList.add(pd);
       }
 
-      private void editPersonDetails(String firstName, String lastName, String address, String city, String state, int zip, String phoneNum, String emailId)
+/*      private void editPersonDetails(String firstName, String lastName, String address, String city, String state, int zip, String phoneNum, String emailId)
       {
                 int flag = 0;
                 for(int i = 0; i < noOfPersons; i++)
@@ -52,7 +51,7 @@ public class AddressBookMain
                         System.out.println("No such name in records");
                }
      }
-
+*/
       public static void main(String[] args)
       {
 		Scanner sc = new Scanner(System.in);
@@ -90,7 +89,7 @@ public class AddressBookMain
                 switch(option)
                 {
                         case 1:
-*/		        System.out.println("Enter the name of the contact you want to edit and details to be modified");
+*/	/*	        System.out.println("Enter the name of the contact you want to edit and details to be modified");
 			System.out.println("First Name: ");
 			String firstName = sc.nextLine();
                         sc.nextLine();
@@ -110,16 +109,16 @@ public class AddressBookMain
 			System.out.println("Email ID: ");
 			String emailId = sc.nextLine();
                         ad.editPersonDetails(firstName,lastName,address,city,state,zip,phoneNum,emailId);
- //                       break;
+ */ //                       break;
   //                      case 2:
-                        System.out.println("Enter the name of the person whose details are to be deleted");
+    /*                    System.out.println("Enter the name of the person whose details are to be deleted");
                         System.out.println("Enter the first name :");
                         String firstN = sc.nextLine();
                         sc.nextLine();
                         System.out.println("Enter the last name :");
                         String lastN = sc.nextLine();
                         ad.deletePersonDetails(firstN,lastN);
-                        /*break;
+*/                        /*break;
                         default:
                         System.out.println("Wrong option");
                 }*/
